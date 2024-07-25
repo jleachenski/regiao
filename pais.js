@@ -19,5 +19,15 @@ const criarPais = () => {
 
 }
 
+const listarPaises = () => {
+    if(paises.length == 0) {
+        console.log("Nenhum pais está cadastrado")
+    } else {
+        paises.forEach((pais, indice) => {
+            console.log(indice + 1, pais)
+        })
+    }
+}
+
 
 
