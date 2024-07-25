@@ -72,3 +72,10 @@ const removerPais = () => {
     console.log("Pais removido com sucesso");
   }
 };
+
+module.exports = {
+    criarPais,
+    listarPaises,
+    atualizarPais,
+    removerPais
+}
