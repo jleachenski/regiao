@@ -2,7 +2,7 @@ const prompt = require("prompt-sync");
 
 const paises = [];
 
-const lerIndice = () => {
+const lerIndicePais = () => {
   listarPaises();
 
   if (paises.length > 0) {
@@ -34,7 +34,7 @@ const criarPais = () => {
   const pais = modelo();
 
   if (pais != undefined) {
-    paises.push({ nome, sigla });
+    paises.push(pais);
 
     console.log("Pais criado com sucesso");
   }
@@ -43,15 +43,17 @@ const criarPais = () => {
 const listarPaises = () => {
   if (paises.length == 0) {
     console.log("Nenhum pais está cadastrado");
+    return false
   } else {
     paises.forEach((pais, indice) => {
       console.log(indice + 1, pais);
     });
+    return true
   }
 };
 
 const atualizarPais = () => {
-  const indice = lerIndice();
+  const indice = lerIndicePais();
 
   if (indice != undefined) {
     const pais = modelo();
@@ -65,7 +67,7 @@ const atualizarPais = () => {
 };
 
 const removerPais = () => {
-  const indice = lerIndice();
+  const indice = lerIndicePais();
   if (indice != undefined) {
     paises.splice(indice, 1);
 
@@ -77,5 +79,6 @@ module.exports = {
     criarPais,
     listarPaises,
     atualizarPais,
-    removerPais
+    removerPais,
+    lerIndicePais
 }
