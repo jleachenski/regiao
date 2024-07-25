@@ -5,18 +5,28 @@ const paises = []
 
 const validarPais = pais => pais.nome != "" && pais.sigla.length == 2
 
-const criarPais = () => {
-
+const modelo = () => {
+ 
     const nome = prompt("Digite o nome do país: ")
     const sigla = prompt("Digite a sigla do país: ").toUpperCase()
 
     if(validarPais({nome, sigla})) {
-        paises.push({nome, sigla})
-        console.log("Pais criado com sucesso")
-    } else {
-        console.log("Pais inválido")
+        return { nome, sigla}
     }
 
+    console.log("Dados inválidos")
+    
+}
+
+const criarPais = () => {
+
+    const pais = modelo()
+
+    if(pais != undefined) {
+        paises.push({nome, sigla})
+
+        console.log("Pais criado com sucesso")
+    }
 }
 
 const listarPaises = () => {
@@ -29,5 +39,15 @@ const listarPaises = () => {
     }
 }
 
+const atualizarPais = () => {
+    listarPaises()
+
+    if(paises.length > 0) {
+        const indice = prompt("Digite o indice do pais que você deseja atualizar: ")
+
+
+    }
+
+}
 
 
